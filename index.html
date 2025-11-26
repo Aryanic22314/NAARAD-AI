@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NAARAD | Neo-Heritage Exploration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              stone: {
+                850: '#1c1917',
+                900: '#171513', // Deep ancient stone
+                950: '#0c0a09', // Void
+              },
+              saffron: {
+                400: '#fb923c',
+                500: '#f97316',
+                600: '#ea580c', // Burnt Offering
+                700: '#c2410c',
+                900: '#7c2d12', // Dried Blood/Clay
+              },
+              gold: {
+                500: '#eab308', // Temple Gold
+              }
+            },
+            fontFamily: {
+              serif: ['Cinzel', 'serif'], // For Headings (Ancient feel)
+              sans: ['Rajdhani', 'sans-serif'], // For UI/Tech (Cyberpunk feel)
+            },
+            backgroundImage: {
+              'noise': "url('https://grainy-gradients.vercel.app/noise.svg')",
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+      body {
+        background-color: #0c0a09;
+        color: #e7e5e4;
+      }
+      /* Custom Scrollbar for Neo-Heritage feel */
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #1c1917; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #44403c; 
+        border-radius: 3px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #ea580c; 
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "recharts": "https://aistudiocdn.com/recharts@^3.5.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
