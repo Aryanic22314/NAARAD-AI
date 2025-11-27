@@ -53,7 +53,7 @@ function App() {
               </span>
             </h1>
             <p className="text-lg md:text-xl text-stone-300 max-w-lg leading-relaxed">
-              Collect 20 Unique NFTs in One Trip. NAARAD preloads your entire cultural journey,
+              NAARAD preloads your entire cultural journey,
               unlocking cinematic stories, AR moments, and friend tracking even when the signal
               disappears.
             </p>
