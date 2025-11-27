@@ -1,7 +1,7 @@
 import { GoogleGenAI } from "@google/genai";
 
 // Initialize Gemini Client
-// IMPORTANT: The API key is injected via process.env.API_KEY
+// The API key must be obtained exclusively from process.env.API_KEY per guidelines.
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
 const SYSTEM_INSTRUCTION = `

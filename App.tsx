@@ -12,20 +12,24 @@ function App() {
       {/* Navigation (Sticky) */}
       <nav className="fixed top-0 w-full z-50 bg-stone-950/80 backdrop-blur-md border-b border-stone-800">
         <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="flex items-center gap-3">
-            {/* Logo Replacement: Maintained circular shape as requested */}
-            <div className="relative group">
-                
-            <span className="font-serif font-bold text-xl tracking-widest text-white">NAARAD</span>
+          
+          {/* Logo Section */}
+          <div className="flex items-center gap-2">
+            <span className="font-serif font-bold text-2xl tracking-widest text-white">NAARAD</span>
           </div>
+
+          {/* Navigation Links */}
           <div className="hidden md:flex gap-8 text-sm font-bold tracking-wider text-stone-400 uppercase">
             <a href="#compass" className="hover:text-saffron-500 transition-colors">Compass</a>
             <a href="#quests" className="hover:text-saffron-500 transition-colors">Quests</a>
             <a href="#oracle" className="hover:text-saffron-500 transition-colors">Oracle</a>
           </div>
+
+          {/* CTA Button */}
           <Button variant="outline" className="text-sm py-2 px-4 !border-saffron-600">
             Get App
           </Button>
+
         </div>
       </nav>
 
