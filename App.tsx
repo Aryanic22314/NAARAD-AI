@@ -1,9 +1,12 @@
 import React from "react";
-import { DEMO_COMPASS_DATA, DEMO_QUESTS, VALUE_PROPS } from "./constants";
+import { DEMO_COMPASS_DATA, DEMO_QUESTS, VALUE_PROPS, PLACE_CATEGORIES, ROUTE_CATEGORIES } from "./constants";
 import { CuriosityCompass } from "./components/CuriosityCompass";
 import { QuestCard } from "./components/QuestCard";
 import { Button } from "./components/Button";
 import { OracleChat } from "./components/OracleChat";
+import { CategoryCard } from "./components/CategoryCard";
+import { RouteCard } from "./components/RouteCard";
+import { FeatureSection } from "./components/FeatureSection";
 
 function App() {
   return (
@@ -22,6 +25,9 @@ function App() {
           <div className="hidden md:flex gap-8 text-sm font-bold tracking-wider text-stone-400 uppercase">
             <a href="#compass" className="hover:text-saffron-500 transition-colors">
               Compass
+            </a>
+            <a href="#places" className="hover:text-saffron-500 transition-colors">
+              Places
             </a>
             <a href="#quests" className="hover:text-saffron-500 transition-colors">
               Quests
@@ -44,18 +50,25 @@ function App() {
         <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6 animate-fade-in-up">
             <div className="inline-block px-3 py-1 bg-saffron-900/30 border border-saffron-600/30 rounded text-saffron-400 text-xs font-bold tracking-[0.2em] uppercase">
-              The Digital OS for Cultural Tourism
+              The Digital Curiosity Compass
             </div>
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-white leading-[1.1] drop-shadow-2xl">
-              Become a{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-saffron-400 to-gold-500">
-                Cultural Legend
+            
+            <h1 className="font-serif text-white leading-[1.1] drop-shadow-2xl">
+              <span className="block text-4xl md:text-5xl lg:text-6xl mb-2">
+                Your{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-saffron-400 to-gold-500">
+                  Personal Cultural Compass
+                </span>
+              </span>
+              <span className="block text-xl md:text-2xl lg:text-3xl text-stone-300 font-normal">
+              </span>
+              <span className="block text-sm text-saffron-400 font-sans tracking-wider uppercase mt-2 opacity-80">
+                (Powered by Multilingual AI Storytelling)
               </span>
             </h1>
-            <p className="text-lg md:text-xl text-stone-300 max-w-lg leading-relaxed">
-              NAARAD preloads your entire cultural journey,
-              unlocking cinematic stories, AR moments, and friend tracking even when the signal
-              disappears.
+
+            <p className="text-lg text-stone-300 max-w-lg leading-relaxed">
+              Frustrated with boring tours and patchy networks? NAARAD preloads your entire cultural journey, unlocking cinematic stories, AR moments, and friend tracking even when the signal disappears. NAARAD uses AI for Bharat-backed multilingual intelligence to serve stories that feel authentic, local, and crafted just for you.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
@@ -116,30 +129,230 @@ function App() {
         </div>
       </section>
 
+      {/* FEATURE 1: Plan the perfect route */}
+      <FeatureSection
+        title="Plan the perfect pilgrimage"
+        description="Whether you're looking for smooth asphalt for your road bike or rugged paths to ancient forts, Naarad helps you generate heritage-specific routes tailored to your spiritual frequency and interests."
+        primaryCtaText="Plan your route now"
+        imageSide="left"
+        visual={
+          <div className="relative w-full aspect-[4/3] bg-stone-900 rounded-2xl overflow-hidden border border-stone-800 shadow-2xl transform rotate-1">
+             {/* Map Background */}
+             <div className="absolute inset-0 bg-[url('https://api.mapbox.com/styles/v1/mapbox/dark-v10/static/77.2090,28.6139,12,0/800x600?access_token=pk.eyJ1IjoiZXhhbXBsZSIsImEiOiJjbGZ4In0')] bg-cover opacity-40 grayscale" style={{backgroundImage: 'radial-gradient(circle at center, #292524 0%, #0c0a09 100%)'}}>
+               {/* Simplified Vector Map Grid (Mock) */}
+               <svg className="w-full h-full opacity-20" viewBox="0 0 100 100">
+                 <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                   <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" strokeWidth="0.5"/>
+                 </pattern>
+                 <rect width="100" height="100" fill="url(#grid)" />
+               </svg>
+             </div>
+             
+             {/* The Route Path */}
+             <svg className="absolute inset-0 w-full h-full drop-shadow-[0_0_8px_rgba(234,88,12,0.8)]" viewBox="0 0 100 100" preserveAspectRatio="none">
+               <path d="M 20 80 Q 40 70 50 50 T 80 20" fill="none" stroke="#ea580c" strokeWidth="1.5" strokeDasharray="4 2" className="animate-pulse" />
+               
+               {/* Waypoints */}
+               <circle cx="20" cy="80" r="2" fill="#0c0a09" stroke="#ea580c" strokeWidth="1" />
+               <circle cx="50" cy="50" r="2" fill="#0c0a09" stroke="#ea580c" strokeWidth="1" />
+               <circle cx="80" cy="20" r="2" fill="#ea580c" className="animate-ping" />
+             </svg>
+
+             {/* UI Overlay Card - Route Stats */}
+             <div className="absolute top-4 right-4 bg-stone-950/90 backdrop-blur border border-stone-800 p-3 rounded-lg w-32 shadow-xl">
+               <div className="flex items-center gap-2 mb-2">
+                 <div className="w-2 h-2 rounded-full bg-saffron-500" />
+                 <span className="text-[10px] uppercase text-stone-400 tracking-wider">Hampi Ruins</span>
+               </div>
+               <div className="h-8 flex items-end gap-1">
+                 <div className="w-1 bg-stone-800 h-3 rounded-t" />
+                 <div className="w-1 bg-stone-800 h-5 rounded-t" />
+                 <div className="w-1 bg-saffron-600 h-8 rounded-t" />
+                 <div className="w-1 bg-stone-800 h-4 rounded-t" />
+                 <div className="w-1 bg-stone-800 h-2 rounded-t" />
+               </div>
+               <div className="mt-2 text-xs font-mono text-saffron-400">
+                 +450 XP
+               </div>
+             </div>
+          </div>
+        }
+      />
+
+      {/* FEATURE 2: Find the right inspiration */}
+      <FeatureSection
+        title="Find the right saga"
+        description="From epic Ramayana trails to hidden colonial ghost towns. Filter by Dynasty, Era, or Architectural style, and set off with context."
+        primaryCtaText="Find inspiration now"
+        imageSide="right"
+        visual={
+          <div className="relative w-full aspect-[4/3] flex items-center justify-center">
+            {/* Background Photos Collage */}
+            <div className="absolute inset-0 grid grid-cols-2 gap-2 transform -rotate-2 scale-95 opacity-50 blur-[1px]">
+               <img src="https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?w=400&h=300&fit=crop" className="rounded-lg object-cover w-full h-full grayscale" />
+               <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=400&h=300&fit=crop" className="rounded-lg object-cover w-full h-full grayscale" />
+               <img src="https://images.unsplash.com/photo-1548013146-72479768bada?w=400&h=300&fit=crop" className="rounded-lg object-cover w-full h-full grayscale" />
+               <img src="https://images.unsplash.com/photo-1514222134-b57cbb8ce073?w=400&h=300&fit=crop" className="rounded-lg object-cover w-full h-full grayscale" />
+            </div>
+
+            {/* Floating Filters Card */}
+            <div className="relative bg-stone-950 border border-saffron-900/50 rounded-xl p-6 shadow-2xl w-3/4 max-w-xs transform rotate-2">
+               <h4 className="font-serif text-saffron-500 mb-4 text-sm tracking-widest uppercase border-b border-stone-800 pb-2">Filter By Saga</h4>
+               
+               <div className="space-y-3">
+                 <div className="flex justify-between items-center text-sm text-stone-300">
+                   <span>Mauryan Empire</span>
+                   <div className="w-4 h-4 border border-stone-600 rounded bg-stone-800" />
+                 </div>
+                 <div className="flex justify-between items-center text-sm text-stone-300">
+                   <span>Chola Dynasty</span>
+                   <div className="w-4 h-4 border border-saffron-500 rounded bg-saffron-600 flex items-center justify-center text-black text-xs">✓</div>
+                 </div>
+                 <div className="flex justify-between items-center text-sm text-stone-300">
+                   <span>Mughal Era</span>
+                   <div className="w-4 h-4 border border-stone-600 rounded bg-stone-800" />
+                 </div>
+               </div>
+
+               <div className="mt-6">
+                 <div className="flex justify-between text-xs text-stone-500 mb-1 font-mono">
+                   <span>DURATION</span>
+                   <span>2 - 5 Days</span>
+                 </div>
+                 <div className="h-1 bg-stone-800 rounded-full overflow-hidden">
+                   <div className="h-full bg-saffron-600 w-2/3 ml-4" />
+                 </div>
+               </div>
+            </div>
+          </div>
+        }
+      />
+
+      {/* FEATURE 3: More effective navigation */}
+      <FeatureSection
+        title="Navigate the forgotten paths"
+        description="Even inside deep caves or dense jungles, Naarad keeps you on course. With offline vector maps and AR markers, focus on the history, not the signal."
+        primaryCtaText="Download offline map"
+        imageSide="left"
+        visual={
+          <div className="relative w-full aspect-[4/3] bg-stone-900 rounded-2xl overflow-hidden shadow-2xl">
+             <img src="https://images.unsplash.com/photo-1501555088652-021faa106b9b?w=800&q=80" alt="Navigation" className="w-full h-full object-cover grayscale-[50%]" />
+             
+             {/* AR Overlay UI */}
+             <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-transparent to-transparent opacity-80" />
+             
+             {/* Turn Indicator Floating Card */}
+             <div className="absolute bottom-10 left-1/2 -translate-x-1/2 bg-stone-100 text-stone-950 px-6 py-3 rounded-lg shadow-[0_0_30px_rgba(0,0,0,0.5)] flex items-center gap-4 w-64 transform -rotate-1 border-4 border-white">
+                <div className="text-3xl font-bold">
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </div>
+                <div>
+                  <div className="text-xs font-bold uppercase tracking-widest text-stone-500">Then</div>
+                  <div className="text-xl font-serif font-bold">Enter Sanctum</div>
+                </div>
+             </div>
+
+             {/* Distance Marker */}
+             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-saffron-600 text-white text-xs font-bold px-2 py-1 rounded shadow-lg animate-bounce">
+               50m
+               <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-saffron-600" />
+             </div>
+          </div>
+        }
+      />
+
+      {/* FEATURE 4: Share your adventure */}
+      <FeatureSection
+        title="Share your conquest"
+        description="Inspire millions of culture seekers with photos and discoveries. Mint your off-trail finds as NFTs and climb the leaderboard of the Cultural Guild."
+        primaryCtaText="Join the Guild"
+        imageSide="right"
+        visual={
+          <div className="relative w-full aspect-[4/3]">
+             {/* Grid of Polaroid-style images */}
+             <div className="absolute inset-0 grid grid-cols-2 grid-rows-2 gap-4 p-4">
+                <div className="bg-white p-2 pb-6 shadow-xl transform -rotate-3 transition-transform hover:rotate-0 z-10">
+                  <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300" className="w-full h-full object-cover grayscale" />
+                </div>
+                <div className="bg-white p-2 pb-6 shadow-xl transform rotate-2 transition-transform hover:rotate-0 translate-y-4">
+                  <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300" className="w-full h-full object-cover grayscale" />
+                </div>
+                <div className="bg-white p-2 pb-6 shadow-xl transform rotate-6 transition-transform hover:rotate-0 -translate-y-2">
+                   <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=300" className="w-full h-full object-cover grayscale" />
+                </div>
+                
+                {/* NFT/Badge Overlay */}
+                <div className="relative flex items-center justify-center bg-stone-900 border border-saffron-600/50 rounded-xl shadow-2xl transform -rotate-2">
+                   <div className="text-center">
+                     <div className="text-4xl mb-2">🏆</div>
+                     <div className="text-xs font-serif text-saffron-500 uppercase">Guild Leader</div>
+                     <div className="text-xs font-mono text-stone-500">Level 42</div>
+                   </div>
+                </div>
+             </div>
+          </div>
+        }
+      />
+
+      {/* Browse Places Carousel */}
+      <section className="py-20 bg-stone-950 border-t border-stone-800 relative overflow-hidden" id="places">
+        <div className="max-w-7xl mx-auto px-4 mb-8 flex justify-between items-end">
+          <div>
+             <h2 className="font-serif text-3xl text-white mb-2">Browse Places</h2>
+             <p className="text-stone-400">Find your next sanctuary by terrain.</p>
+          </div>
+          <div className="flex gap-2">
+            <button className="p-2 rounded-full border border-stone-800 text-stone-400 hover:text-saffron-500 hover:border-saffron-500 transition-colors">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+            </button>
+            <button className="p-2 rounded-full border border-stone-800 text-stone-400 hover:text-saffron-500 hover:border-saffron-500 transition-colors">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+            </button>
+          </div>
+        </div>
+        
+        {/* Infinite Scrolling Strip */}
+        <div className="flex overflow-hidden relative w-full mask-linear-fade">
+          <div className="flex gap-4 animate-scroll-fast hover:paused w-max px-4">
+            {/* Double the list to create seamless loop */}
+            {[...PLACE_CATEGORIES, ...PLACE_CATEGORIES].map((category, index) => (
+              <CategoryCard key={`${category.id}-${index}`} category={category} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Discover New Routes (Large Cards) */}
+      <section className="py-20 bg-stone-950 border-t border-stone-800 relative">
+        <div className="max-w-7xl mx-auto px-4 mb-8">
+          <h2 className="font-serif text-3xl text-white mb-2">Discover new routes</h2>
+        </div>
+        <div className="flex overflow-x-auto gap-4 px-4 pb-8 mask-linear-fade no-scrollbar">
+           {ROUTE_CATEGORIES.map(category => (
+             <RouteCard key={category.id} category={category} />
+           ))}
+        </div>
+      </section>
+
       {/* Collections / Quests Slider */}
-      <section className="py-20 overflow-hidden relative" id="quests">
+      <section className="py-20 overflow-hidden relative bg-stone-950" id="quests">
         <div className="max-w-7xl mx-auto px-4 mb-8 flex justify-between items-end">
           <div>
             <h2 className="font-serif text-3xl text-white mb-2">Discover Curated Collections</h2>
             <p className="text-stone-400">Handcrafted trails tested by historians and locals.</p>
           </div>
-          <div className="hidden md:flex gap-2">
-            <button className="w-10 h-10 rounded-full border border-stone-700 flex items-center justify-center text-white hover:bg-stone-800">
-              ←
-            </button>
-            <button className="w-10 h-10 rounded-full border border-stone-700 flex items-center justify-center text-white hover:bg-stone-800">
-              →
-            </button>
-          </div>
         </div>
 
-        {/* Horizontal Scroll Container */}
-        <div className="flex overflow-x-auto gap-6 px-4 pb-12 snap-x snap-mandatory scrollbar-hide max-w-[100vw]">
-          <div className="w-[max(0px,calc(50%-42rem))] shrink-0"></div>
-          {DEMO_QUESTS.map((quest) => (
-            <QuestCard key={quest.id} quest={quest} />
-          ))}
-          <div className="min-w-[50px]"></div>
+        {/* Infinite Scrolling Container */}
+        <div className="flex overflow-hidden relative w-full mask-linear-fade">
+          <div className="flex gap-6 animate-scroll-slow hover:paused w-max px-4">
+             {/* Double the list to create seamless loop */}
+            {[...DEMO_QUESTS, ...DEMO_QUESTS].map((quest, index) => (
+              <QuestCard key={`${quest.id}-${index}`} quest={quest} />
+            ))}
+          </div>
         </div>
       </section>
 
@@ -164,7 +377,7 @@ function App() {
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-multiply" />
         <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
           <h2 className="font-serif text-4xl md:text-5xl text-stone-950 font-bold mb-6">
-            Know a new world. Know it with Naarad.
+            Know a new world. Know it with NAARAD.
           </h2>
           <p className="text-stone-900/80 text-xl font-medium mb-10 max-w-2xl mx-auto">
             Join 50M+ outdoor explorers. Download the offline maps today.
@@ -200,7 +413,7 @@ function App() {
               Imprint
             </a>
           </div>
-          <div>© 2024 NAARAD Cultural OS</div>
+          <div>© 2024 NAARAD Cultural Curiosity Compass</div>
         </div>
       </footer>
     </div>

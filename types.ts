@@ -28,3 +28,16 @@ export interface ValueProp {
   headline: string;
   icon: string;
 }
+
+export interface PlaceCategory {
+  id: string;
+  name: string;
+  iconPath: string;
+}
+
+export interface RouteCategory {
+  id: string;
+  name: string;
+  imageUrl: string;
+  count: number;
+}

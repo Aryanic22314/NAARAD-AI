@@ -33,6 +33,16 @@
             },
             backgroundImage: {
               'noise': "url('https://grainy-gradients.vercel.app/noise.svg')",
+            },
+            animation: {
+              'scroll-fast': 'scroll 30s linear infinite',
+              'scroll-slow': 'scroll 60s linear infinite',
+            },
+            keyframes: {
+              scroll: {
+                '0%': { transform: 'translateX(0)' },
+                '100%': { transform: 'translateX(-50%)' },
+              }
             }
           },
         },
@@ -58,14 +68,23 @@
       ::-webkit-scrollbar-thumb:hover {
         background: #ea580c; 
       }
+      /* Mask for fading edges on scroll containers */
+      .mask-linear-fade {
+        mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+        -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+      }
+      /* Pause animation on hover */
+      .hover\:paused:hover {
+        animation-play-state: paused;
+      }
     </style>
-  <script type="importmap">
+<script type="importmap">
 {
   "imports": {
-    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
     "react/": "https://aistudiocdn.com/react@^19.2.0/",
     "react": "https://aistudiocdn.com/react@^19.2.0",
     "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
     "recharts": "https://aistudiocdn.com/recharts@^3.5.0"
   }
 }
