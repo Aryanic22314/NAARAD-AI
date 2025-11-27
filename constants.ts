@@ -89,7 +89,7 @@ export const VALUE_PROPS: ValueProp[] = [
   },
   {
     id: 6,
-    differentiator: "AI4Bharat Storytelling",
+    differentiator: "AI for Bharat Storytelling",
     headline: "Unlock multilingual stories crafted by Indic AI models for clarity and emotional depth.",
     icon: "🕉️"
   },
